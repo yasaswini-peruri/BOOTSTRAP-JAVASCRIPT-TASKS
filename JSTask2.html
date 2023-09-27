@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>TASK-2</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid  bg-dark text-white font-weight-bold" style="height: 800px;">
+        <h1 class="display-4">Alphabetical Order of Letters</h1>
+        <p>Enter a string to sort its letters alphabetically:</p>
+        <div class="input-group mb-3">
+            <input type="text" id="inputString" class="form-control" />
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="sortAlphabetically()">Sort</button>
+            </div>
+        </div>
+        <p>Sorted String:</p>
+        <p id="sortedResult" class="font-weight-bold"></p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function alphabet_order(str) {
+            const lettersOnly = str.replace(/[^a-zA-Z]/g, '');
+            const sorted = lettersOnly.split('').sort().join('');
+            return sorted;
+        }
+
+        function sortAlphabetically() {
+            const inputElement = document.getElementById("inputString");
+            const inputValue = inputElement.value;
+            const resultElement = document.getElementById("sortedResult");
+            const sortedString = alphabet_order(inputValue);
+            resultElement.textContent = sortedString;
+        }
+    </script>
+</body>
+
+</html>
